@@ -15,4 +15,11 @@ def sayingHi():
 			string += data[key]
 		return string,200
 
-
+@app.route("/Comment", methods=['POST'])
+def postRequest():
+	request.get_data()
+	data = request.json
+	string = ""
+	for key in data.keys():
+		string += data[key]
+	return string,200
