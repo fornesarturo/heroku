@@ -2,7 +2,6 @@ from flask import Flask, request, render_template, send_file
 
 app = Flask(__name__)
 
-
 @app.route("/sayhi", methods=['POST','GET'])
 def sayingHi():
 	if request.method == 'GET':
@@ -17,7 +16,7 @@ def sayingHi():
 
 @app.route("/Comment", methods=['POST'])
 def postRequest():
-	data = request.get_json(force=True)
+	data = request.get_json()
 	string = ""
 	for key in data.keys():
 		string += data[key]
