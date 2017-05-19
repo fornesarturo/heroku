@@ -16,7 +16,7 @@ def sayingHi():
 
 @app.route("/Comment", methods=['POST'])
 def postRequest():
-	data = request.get_json()
+	data = request.get_json(force=True)
 	string = ""
 	for key in data.keys():
 		string += data[key]
