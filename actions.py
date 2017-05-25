@@ -1,8 +1,8 @@
 def generateAnswer(text):
     if "hej" in text.lower():
-        return "Hej, jag ar en djur.","text"
+        return "Hej, jag är en djur.","text"
     else:
-        return "Jag ar Skoldpadda.","text"
+        return "Jag är Sköldpadda.","text"
 
 class EntryManager(object):
     def __init__(self,entry):
