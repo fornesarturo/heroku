@@ -32,6 +32,7 @@ def answer(answer_details):
     params  = {"access_token": PAT}
     headers = {"Content-Type": "application/json"}
     data    = JSONify(answer_details)
+    print(data)
     if(data is None):
         return None
     r = requests.post("https://graph.facebook.com/v2.6/me/messages",params=params,headers=headers,data=data)
