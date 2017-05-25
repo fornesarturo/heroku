@@ -1,6 +1,14 @@
+from translate import Translator
+
+translator = Translator(to_lang="sv",from_lang="en")
+
 def generateAnswer(text):
     if "hej" in text.lower():
         return "Hej, jag är en djur.","text"
+    if "translate" in text.lower():
+        message = text
+        message.replace("translate",1)
+        return translator.translate(message)
     else:
         return "Jag är Sköldpadda.","text"
 
