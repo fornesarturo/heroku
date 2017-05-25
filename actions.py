@@ -15,6 +15,10 @@ def generateAnswer(text):
             return translator.translate(message),"text"
         else:
             return "Empty message","text"
+    if "casiel" in text.lower():
+        return "Pinche Casiel, te la comes.","text"
+    if "Vad är du?" == text:
+        return "Jag är en Bot.\nI can translate your english nonsense into swedish glory.", "text"
     else:
         return "Jag är Sköldpadda.","text"
 

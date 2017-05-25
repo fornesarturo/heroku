@@ -46,6 +46,22 @@ def answer(answer_details):
         print(r.text)
 
 #Generate Response
+def generateQuickReplies(quick_type):
+    if quick_type == 'options':
+        return [
+            {
+                "content_type":"text",
+                "title":"Help",
+                "payload":"PAYLOAD_HELP"
+             },
+             {
+                "content_type":"text",
+                "title":"Vad är du?",
+                "payload":"PAYLOAD_VAD"
+             }
+        ]
+    return []
+
 def JSONify(answer_details):
     log(answer_details)
     _type = answer_details['type']
@@ -57,6 +73,7 @@ def JSONify(answer_details):
                 "recipient":{"id":sender_id},
                 "message":{"text":message_answer}
                 }
+        data['message']['quick_replies'] = generateQuickReplies("options")
         return json.dumps(data)
 
 #Deal with Entries
