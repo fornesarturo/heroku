@@ -3,6 +3,8 @@ from translate import Translator
 translator = Translator(to_lang="sv",from_lang="en")
 
 def generateAnswer(text):
+    if "who" in text.lower() and "made" in text.lower() and "you" in text.lower():
+        return translator.translate("I am a product of Dwarven Magic."),"text"
     if "hej" in text.lower():
         return "Hej, jag är en djur.","text"
     if "help" in text.lower():
