@@ -18,6 +18,7 @@ def verify():
 @app.route('/', methods=['POST'])
 def callback():
     data = request.get_json()
+    log(data)
     if data == None:
         return request.form
     if data["object"] == "page":
@@ -41,7 +42,7 @@ def answer(answer_details):
 
 #Generate Response
 def JSONify(answer_details):
-    print(answer_details)
+    log(answer_details)
     _type = answer_details['type']
     sender_id = answer_details['sender']
 
