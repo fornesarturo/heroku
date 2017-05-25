@@ -8,7 +8,7 @@ def generateAnswer(text):
     if "translate" in text.lower():
         message = text
         message.replace("translate", "", 1)
-        return translator.translate(message)
+        return translator.translate(message),"text"
     else:
         return "Jag är Sköldpadda.","text"
 
