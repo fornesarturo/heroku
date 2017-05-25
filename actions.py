@@ -5,9 +5,16 @@ translator = Translator(to_lang="sv",from_lang="en")
 def generateAnswer(text):
     if "hej" in text.lower():
         return "Hej, jag är en djur.","text"
+    if "help" in text.lower():
+        return "Type in 'translate ' followed by the expression you want translated: 'translate {expression}'","text"
     if "translate" in text.lower():
-        message = text
-        return translator.translate(message.replace("translate", "", 1)),"text"
+        if text == "translate" or text == "translate  ":
+            return "Type in 'translate ' followed by the expression you want translated: 'translate {expression}'","text"
+        message = text.replace("translate", "", 1).strip()
+        if len(message) > 0:
+            return translator.translate(message),"text"
+        else:
+            return "Empty message","text"
     else:
         return "Jag är Sköldpadda.","text"
 
