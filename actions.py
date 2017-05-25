@@ -14,8 +14,8 @@ class EntryManager(object):
     def answerEntry(self):
         def getAnswer(event):
             if event.get("message"):
-                sender = ['sender']['id']
-                text = ['message'].get('text')
+                sender = event['sender']['id']
+                text = event['message'].get('text')
                 if not text:
                     answer,_type = 'Nice ' + str(event['message']['attachments'][0]['type']),'text'
 
