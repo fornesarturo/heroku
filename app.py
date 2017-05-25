@@ -27,9 +27,10 @@ def callback():
     return "OK", 200
 
 def answer(answer_details):
+    log(answer_details)
     params  = {"access_token": "EAAUXU7pfXaUBAN9LrhsBJg3lDS1bptbkiO7Md7s8nxZBk1fCPbQiQl5mnDKHG8n5czKEH9Ihdb5iaZCh5CzDWMQcKqf1GnEEcZBX8jUMbp30rZCyegawHgThxdkZCsG0XIKjdnExAoNFXl2tRlC2vejZCsK5myoMutTcQ8xfxezAZDZD"}
     headers = {"Content-Type": "application/json"}
-    data    = JSONify(answer_details)
+    data = JSONify(answer_details)
     log(data)
     if(data is None):
         return None
