@@ -25,7 +25,7 @@ def callback():
     if data["object"] == "page":
         for entry in data["entry"]:
             EM = EntryManager(entry)
-            result_list = map(answer, EntryManager.answer())
+            result_list = map(answer, EntryManager.answerEntry())
     return "OK", 200
 
 def answer(answer_details):

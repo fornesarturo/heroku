@@ -11,7 +11,7 @@ class EntryManager(object):
         for event in entry['messaging']:
             if(event.get("message")):
                 self.message_list.append(event)
-    def answer(self):
+    def answerEntry(self):
         def getAnswer(event):
             if event.get("message"):
                 sender = ['sender']['id']
