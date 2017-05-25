@@ -23,9 +23,12 @@ def callback():
     if data == None:
         return request.form
     if data["object"] == "page":
+        log("I'm a page")
         for entry in data["entry"]:
+            log("I'm an entry")
+            log(entry)
             EM = EntryManager(entry)
-            result_list = map(answer, EM.answerEntry())
+            result_list = list(map(answer, EM.answerEntry()))
     return "OK", 200
 
 def answer(answer_details):
