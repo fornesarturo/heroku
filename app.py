@@ -4,8 +4,6 @@ from actions import *
 
 app = Flask(__name__)
 
-PAT = "EAAUXU7pfXaUBANDYYDowVgl631ejD4kARCBmIECs5BqLotsBZCAIZAR6ACUVNJ56QHJelpUZAn4eLYG5QWOZBpR6uF0JtNqtELfv6FqUKRbLlrZC2HIavCgVogFR27k8G93zUnIBjSkRWNNqWO5mZAND2HWtEoHbXrQAoeZBfVB6QZDZD"
-
 @app.route('/', methods=['GET'])
 def verify():
     # when the endpoint is registered as a webhook, it must echo back
@@ -29,10 +27,10 @@ def callback():
     return "OK", 200
 
 def answer(answer_details):
-    params  = {"access_token": PAT}
+    params  = {"access_token": "EAAUXU7pfXaUBAN9LrhsBJg3lDS1bptbkiO7Md7s8nxZBk1fCPbQiQl5mnDKHG8n5czKEH9Ihdb5iaZCh5CzDWMQcKqf1GnEEcZBX8jUMbp30rZCyegawHgThxdkZCsG0XIKjdnExAoNFXl2tRlC2vejZCsK5myoMutTcQ8xfxezAZDZD"}
     headers = {"Content-Type": "application/json"}
     data    = JSONify(answer_details)
-    print(data)
+    log(data)
     if(data is None):
         return None
     r = requests.post("https://graph.facebook.com/v2.6/me/messages",params=params,headers=headers,data=data)
@@ -76,3 +74,7 @@ def postRequest():
     print(name+"\n"+email+"\n"+message)
     string = name+" "+email+" "+message
     return string,200
+
+def log(message):
+    print(str(message))
+    sys.stdout.flush()
