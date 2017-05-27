@@ -12,7 +12,7 @@ def generateAnswer(text):
     if "translate" in text.lower():
         if text == "translate" or text == "translate  ":
             return "Type in 'translate ' followed by the expression you want translated: 'translate {expression}'","text"
-        message = text.replace("translate", "", 1).strip()
+        message = text.lower().replace("translate", "", 1).strip()
         if len(message) > 0:
             return translator.translate(message),"text"
         else:
